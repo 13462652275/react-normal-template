@@ -1,0 +1,39 @@
+/* PC端 */
+.main {
+	height: 100%;
+  text-align: center;
+  background-color: #282c34;
+}
+
+.main-logo {
+  animation: main-logo-spin infinite 20s linear;
+  width: 40vmin;
+  height: 40vmin;
+}
+
+.main-header {
+  height: 300px;
+}
+
+.main-nav {
+  overflow: hidden;
+  text-align: center;
+}
+
+.main-nav > li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.main-link {
+  color: #61dafb;
+}
+
+@keyframes main-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
