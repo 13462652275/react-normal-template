@@ -1,45 +1,52 @@
 //基础模块
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 //路由模块
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+
+//第三方模块
+import { fromJS, is } from 'immutable';
 
 
-class RouterView extends Component {
-	static propTypes = {
-		routes: PropTypes.array,
-	};
-
-  componentWillReceiveProps (nextProps) {
-    console.log(nextProps, 15);
-    // const [ to, from ] = [ nextProps.location, this.props.location ];
-    // if (to.pathname === '/' && from.pathname !== '/') {
-    //   console.log(to, from);
-    //   this.props.history.push('/hello-world');
-    // };
+class RouterView extends PureComponent {
+  static propTypes = {
+    routes: PropTypes.array,
+    onBeforeEach: PropTypes.func,
   };
 
-	render () {
-		return (
-			<Switch>
+  static defaultProps = {
+    onBeforeEach: () => {},
+  };
+
+  componentWillReceiveProps (nextProps) {
+    const [ to, from ] = [ nextProps.location, this.props.location ];
+    if (!is(fromJS(this.props), fromJS(nextProps))) {
+      this.props.onBeforeEach(to, from, this.props.history);
+    };
+  };
+
+  render () {
+    return (
+      <Switch>
         {
-          this.props.routes.map(item => (
+          this.props.routes.map((item, index) => (
             <Route 
               exact={ item.exact } 
               strict={ item.strict }
               path={ item.path } 
               render={ 
-              	props => <item.component { ...props } routes={ item.children } /> 
+                props => item.redirect 
+                ? (<Redirect to={ item.redirect } />) 
+                : (<item.component { ...props } routes={ item.children } />) 
               } 
-              children={ data => { console.log(data); return (<h2>123456789</h2>) } }
-              key={ item.path }
+              key={ index } 
             />
           ))
         }
       </Switch>
-		);
-	};
+    );
+  };
 };
 
 export default withRouter(RouterView);

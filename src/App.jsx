@@ -1,5 +1,5 @@
 //基础模块
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 //路由模块
 import { HashRouter as Router } from 'react-router-dom';
@@ -11,15 +11,19 @@ import routes, { RouterView } from '@/router';
 import '@/styles/reset.css';
 import '@/styles/common.css';
 
-// const Home = () => (<h1>Home</h1>);
-// const Todo = () => (<h1>Todo</h1>);
 
+class App extends PureComponent {
+	onBeforeEach = (to, from, history) => {
+		//全局路由监听
+	};
 
-class App extends Component {
   render() {
     return (
       <Router>
-        <RouterView routes={ routes } history={ this.props.history }></RouterView>
+        <RouterView 
+        	routes={ routes } 
+        	onBeforeEach={ this.onBeforeEach }
+        />
       </Router>
     );
   };
