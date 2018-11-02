@@ -20,7 +20,7 @@ class Main extends PureComponent {
 		routes: PropTypes.array,
 	};
 
-	render () {
+	render() {
 		const { routes } = this.props;
 
 		return (

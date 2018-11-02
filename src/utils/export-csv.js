@@ -29,7 +29,7 @@
 //   data: arr,
 // });
 
-export function exportCsv (object) {
+export function exportCsv(object) {
   var titleForKey = object.titleForKey,
     data = object.data,
     str = [];

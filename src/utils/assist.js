@@ -1,5 +1,6 @@
+'use strict';
 //验证数据类型
-export function typeOf (obj) {
+export function typeOf(obj) {
   const toString = Object.prototype.toString;
   const map = {
     '[object Boolean]'  : 'boolean',
@@ -18,7 +19,7 @@ export function typeOf (obj) {
 };
 
 // 深拷贝
-function deepCopy (data) {
+function deepCopy(data) {
   const type = typeOf(data);
   let object;
 

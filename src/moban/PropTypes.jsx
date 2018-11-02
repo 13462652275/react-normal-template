@@ -37,7 +37,7 @@ class moban extends PureComponent {
 		className: '',
 	};
 
-	render () {
+	render() {
 		return (
 			<div 
 				className={ ('moban ' + this.props.className).trim() } 

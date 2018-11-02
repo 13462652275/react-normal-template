@@ -41,20 +41,20 @@ class moban extends Component {
 		className: '',
 	};
 
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {};
 	};
 
-	componentWillMount () {
+	componentWillMount() {
 
 	};
 
-	shouldComponentUpdate (nextProps, nextState) {
+	shouldComponentUpdate(nextProps, nextState) {
 		return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
 	};
 
-	render () {
+	render() {
 		return (
 			<div 
 				className={ ('moban ' + this.props.className).trim() } 

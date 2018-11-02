@@ -1,5 +1,7 @@
+'use strict';
+
 // 插值搜索（ 该方法在已排序的数组性能好，非已排序的请用 findIndex ）
-Array.prototype.insertionSearch = function (item) {
+Array.prototype.insertionSearch = function(item) {
   var _this = this, low = 0, high = this.length - 1, mid, element, attribute;
   var arrayItem = function (index) {
     return attribute ? _this[index][attribute] : _this[index];
@@ -30,7 +32,7 @@ Array.prototype.insertionSearch = function (item) {
 };
 
 // 日期格式化
-Date.prototype.format = function (fmt) {
+Date.prototype.format = function(fmt) {
   var date = {
     'M+': this.getMonth() + 1, //月
     'd+': this.getDate(), //日
@@ -51,7 +53,7 @@ Date.prototype.format = function (fmt) {
   return fmt;
 };
 
-console.area = function () {
+console.area = function() {
   console.log('\n');
   console.log('-- start --');
   console.info.apply(undefined, arguments);

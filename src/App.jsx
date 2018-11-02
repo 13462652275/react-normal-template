@@ -11,6 +11,10 @@ import routes, { RouterView } from '@/router';
 import '@/styles/reset.css';
 import '@/styles/common.css';
 
+//方法
+import uuid from '@/utils/uuid';
+
+console.log(uuid());
 
 class App extends PureComponent {
 	onBeforeEach = (to, from, history) => {
@@ -22,7 +26,7 @@ class App extends PureComponent {
       <Router>
         <RouterView 
         	routes={ routes } 
-        	onBeforeEach={ this.onBeforeEach }
+        	onBeforeEach={ this.onBeforeEach } 
         />
       </Router>
     );

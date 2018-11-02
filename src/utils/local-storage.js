@@ -1,4 +1,6 @@
-export function setStorage (key, data, days) {
+'use strict';
+
+export function setStorage(key, data, days) {
   var expires;
 
   if (!key || !data) {
@@ -12,7 +14,7 @@ export function setStorage (key, data, days) {
   return true;
 };
 
-export function getStorage (key) {
+export function getStorage(key) {
   var data, nowTime = new Date().getTime();
 
   if (!key) console.error('[ localStorage ]: Key is a must fill parameter');
@@ -33,7 +35,7 @@ export function getStorage (key) {
   };
 };
 
-export function clearStorage (key) {
+export function clearStorage(key) {
   if (key) {
     localStorage.removeItem(key);
   } else {

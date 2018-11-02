@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 //{ key: 'xxx', value: 'xxx', days: '3', path: '/', domain: document.domain }
-export function setCookie (params) {
+export function setCookie(params) {
   var time = new Date(), days = '', path = '', domain = '';
 
   if (!params.key || !params.value) {
@@ -20,7 +20,7 @@ export function setCookie (params) {
   document.cookie = params.key + '=' + params.value + ';' + days + path + domain;
 };
 
-export function getCookie (key) {
+export function getCookie(key) {
   if (!key) {
     console.error('[Cookie Error]: not set key.');
     return;
@@ -38,7 +38,7 @@ export function getCookie (key) {
   return false;
 };
 
-export function clearCookie (params) {
+export function clearCookie(params) {
   var arr = document.cookie.split(';'), path = '', domain = '';
 
   if (!params) params = {};

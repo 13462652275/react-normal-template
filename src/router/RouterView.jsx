@@ -19,7 +19,7 @@ class RouterView extends PureComponent {
     onBeforeEach: () => {},
   };
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     const [ to, from ] = [ nextProps.location, this.props.location ];
     if (!is(fromJS(this.props), fromJS(nextProps))) {
       this.props.onBeforeEach(to, from, this.props.history);
